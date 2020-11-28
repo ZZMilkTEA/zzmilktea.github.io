@@ -1,0 +1,329 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>叠纸一面未答好的点记录 | ZZMIlkTEA&#39;s BLOG</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="baidu-site-verification" content="1ZsVVOmjoT" />
+    <meta name="description" content="乘着还记得赶紧记录  goroutine相关 是否自己实践过 关于是否有必要使用锁 goroutine更具体是什么 和Java的并发有什么区别 自己额外讲了互斥锁和读写锁，但是也没讲得很清晰_(:з」∠)_   Vue相关 双向绑定实现原理（还是没特别清晰讲出，3.0 Proxy内容忘了）   对于《there is no game：no dimension》的吸引玩家的特点总结（其实想想还是应该">
+<meta property="og:type" content="article">
+<meta property="og:title" content="叠纸一面未答好的点记录">
+<meta property="og:url" content="http://yoursite.com/2020/09/27/%E5%8F%A0%E7%BA%B8%E4%B8%80%E9%9D%A2%E6%9C%AA%E7%AD%94%E5%A5%BD%E7%9A%84%E7%82%B9%E8%AE%B0%E5%BD%95/index.html">
+<meta property="og:site_name" content="ZZMIlkTEA&#39;s BLOG">
+<meta property="og:description" content="乘着还记得赶紧记录  goroutine相关 是否自己实践过 关于是否有必要使用锁 goroutine更具体是什么 和Java的并发有什么区别 自己额外讲了互斥锁和读写锁，但是也没讲得很清晰_(:з」∠)_   Vue相关 双向绑定实现原理（还是没特别清晰讲出，3.0 Proxy内容忘了）   对于《there is no game：no dimension》的吸引玩家的特点总结（其实想想还是应该">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-09-27T07:00:07.000Z">
+<meta property="article:modified_time" content="2020-11-28T11:07:48.442Z">
+<meta property="article:author" content="ZZMilkTEA">
+<meta property="article:tag" content="文章">
+<meta name="twitter:card" content="summary">
+    
+      <link rel="alternative" href="/atom.xml" title="ZZMIlkTEA&#39;s BLOG" type="application/atom+xml">
+    
+    
+      <link rel="icon" href="/css/favicon.ico">
+    
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<!-- Baidu Analytics -->
+<script type="text/javascript">
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?fe2c7555911b8560db5e56121c5d5960";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!-- End Baidu Analytics -->
+
+
+    <script src="//cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body>
+<div id="container"> 
+
+    
+    <div id="wrap">
+	   
+
+<header id="header" class="hdpage">
+    
+    <div id="header-outer" class="outer">
+        
+        <div id="header-inner" class="inner">
+          <nav id="main-nav">
+            <a id="main-nav-toggle" class="nav-icon"></a>
+            
+              <a class="main-nav-link" href="/">
+                  
+                  
+
+                
+                  Home
+                </a>
+            
+              <a class="main-nav-link" href="/API">
+                  
+                  
+
+                
+                  API
+                </a>
+            
+              <a class="main-nav-link" href="/tags">
+                  
+                  
+
+                
+                  Tags
+                </a>
+            
+              <a class="main-nav-link" href="/archives">
+                  
+                  
+
+                
+                  Archives
+                </a>
+            
+              <a class="main-nav-link" href="/about">
+                  
+                  
+
+                
+                  About
+                </a>
+            
+              <a class="main-nav-link" href="https://github.com/JSLite/JSLite" target="_blank" rel="noopener">
+                  
+                  
+
+                
+                  Github
+                </a>
+            
+          </nav>
+          <nav id="sub-nav">
+            
+              <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+            
+            <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+          </nav>
+          <div id="search-form-wrap">
+            <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+          </div>
+        </div>
+    </div>
+</header>
+		<div class="outer">
+		
+    <article id="post-叠纸一面未答好的点记录" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="article-meta">
+        
+          <header class="article-header">
+            
+  
+    <a href="/2020/09/27/%E5%8F%A0%E7%BA%B8%E4%B8%80%E9%9D%A2%E6%9C%AA%E7%AD%94%E5%A5%BD%E7%9A%84%E7%82%B9%E8%AE%B0%E5%BD%95/">
+      <h1 class="article-title" itemprop="name">
+        叠纸一面未答好的点记录
+      </h1>
+    </a>
+  
+
+
+
+          </header>
+        
+
+        <!--<a href="/2020/09/27/%E5%8F%A0%E7%BA%B8%E4%B8%80%E9%9D%A2%E6%9C%AA%E7%AD%94%E5%A5%BD%E7%9A%84%E7%82%B9%E8%AE%B0%E5%BD%95/" class="article-date">
+  <time datetime="2020-09-27T07:00:07.000Z" itemprop="datePublished">2020-09-27</time>
+</a>-->
+        <!--  -->
+      </div>
+      <div class="article-inner">
+            
+            
+              <!--<header class="article-header">
+                
+  
+    <a href="/2020/09/27/%E5%8F%A0%E7%BA%B8%E4%B8%80%E9%9D%A2%E6%9C%AA%E7%AD%94%E5%A5%BD%E7%9A%84%E7%82%B9%E8%AE%B0%E5%BD%95/">
+      <h1 class="article-title" itemprop="name">
+        叠纸一面未答好的点记录
+      </h1>
+    </a>
+  
+
+
+
+              </header>-->
+            
+            <div class="article-entry" itemprop="articleBody">
+              <div class="page-toc">
+                
+              </div>
+              
+                <p>乘着还记得赶紧记录</p>
+<ul>
+<li>goroutine相关<ul>
+<li>是否自己实践过</li>
+<li>关于是否有必要使用锁</li>
+<li>goroutine更具体是什么</li>
+<li>和Java的并发有什么区别</li>
+<li>自己额外讲了互斥锁和读写锁，但是也没讲得很清晰_(:з」∠)_</li>
+</ul>
+</li>
+<li>Vue相关<ul>
+<li>双向绑定实现原理（还是没特别清晰讲出，3.0 Proxy内容忘了）</li>
+</ul>
+</li>
+<li>对于《there is no game：no dimension》的吸引玩家的特点总结（其实想想还是应该举《极乐迪斯科》这个例子的，游戏系统真的给我带来一些冲击）</li>
+<li>REST api 为什么要基于 HTTP 来实现？有什么好处？</li>
+<li>HTTP 响应的状态码介绍</li>
+<li>对于计算机图形学的介绍（呃，本来还没看太多…之后好好钻研）<ul>
+<li>带边框的三角形的实现（现在想想还有线宽没提，有个刷子算法的）</li>
+</ul>
+</li>
+<li>大学活动期间意外的收获和意外的难过（没太能立马反应过来，之前没准备过这个hhhhh）</li>
+</ul>
+<p>再想起来再更，许愿二面！！！   这次听到的比较多的关键词是“需求”，需求为先</p>
+
+              
+            </div>
+            <footer class="article-footer">
+              <a href="/2020/09/27/%E5%8F%A0%E7%BA%B8%E4%B8%80%E9%9D%A2%E6%9C%AA%E7%AD%94%E5%A5%BD%E7%9A%84%E7%82%B9%E8%AE%B0%E5%BD%95/" class="article-date">
+  <time datetime="2020-09-27T07:00:07.000Z" itemprop="datePublished">2020-09-27</time>
+</a>
+              <a data-url="http://yoursite.com/2020/09/27/%E5%8F%A0%E7%BA%B8%E4%B8%80%E9%9D%A2%E6%9C%AA%E7%AD%94%E5%A5%BD%E7%9A%84%E7%82%B9%E8%AE%B0%E5%BD%95/" data-id="cki1mdryi003yvorh6f4oe5z8" class="article-share-link">Share</a>
+              
+              
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%96%87%E7%AB%A0/" rel="tag">文章</a></li></ul>
+
+            </footer>
+      </div>
+      
+        
+<nav id="article-nav">
+  
+    <a href="/2020/10/14/%E5%8F%A0%E7%BA%B8%E4%BA%8C%E9%9D%A2%E7%9A%84%E4%B8%80%E4%BA%9B%E8%AE%B0%E5%BD%95%E5%92%8C%E6%84%9F%E6%85%A8/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          叠纸二面的一些记录和感慨
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/09/23/%E7%BD%91%E9%A1%B5%E7%89%88%E7%AE%80%E5%8E%86-%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0ing/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">网页版简历-持续更新ing</div>
+    </a>
+  
+</nav>
+
+      
+    </article>
+    <script type="text/javascript">
+      window.onscroll = function(){ 
+        $(function(){
+          var $toc = $('.page-toc'),
+              $article = $('.article-entry')
+              toc_top = $toc.offset().top
+              tocsub_width = $toc.children().width()
+              article_height = $article.children().height()
+              scroll_top = document.body.scrollTop
+              screen_h = $(window).height()
+              footer_top = $('.article-footer').offset().top - $(window).height()
+              if(toc_top&&scroll_top&&scroll_top>toc_top&&scroll_top<footer_top){
+                $toc.children().css({
+                  "position": "fixed",
+                  "height": (screen_h -20)+'px',
+                  "overflow": "auto"
+                })
+                $article.css('margin-right',tocsub_width+'px')
+              }else{
+                $toc.children().css({
+                  "position": "relative",
+                  "height":'inherit',
+                  "overflow": "auto"
+                })
+                $article.css('margin-right',0+'px')
+              }
+        })
+      } 
+    </script>
+
+
+
+
+
+
+
+
+		</div>
+		
+
+<footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+        <div class="left">
+            &copy; 2020 ZZMilkTEA<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and Theme by <a href="https://github.com/jaywcjlove/hexoThemeKacper" target="_blank" rel="noopener">hexoThemeKacper </a>
+        </div>
+        <div class="right">
+            
+        </div>
+    </div>
+  </div>
+</footer>
+<script src="//cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script>
+
+
+<script type="text/javascript">
+$(function(){
+  var $img = $('.article-entry img'),
+      $link = $img.css({
+        "display":"inline-block"
+      }).parent()
+
+  if($link.parent().is("a")){
+      $img.each(function(idx,item) {
+      $(this).parent().attr('href',$(this).parent().parent().attr('href'))
+    })
+  }
+})
+</script>
+
+
+
+<script src="/js/script.js"></script>
+
+
+  	</div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/API" class="mobile-nav-link">API</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+    <a href="https://github.com/JSLite/JSLite" target="_blank" rel="noopener" class="mobile-nav-link">Github</a>
+  
+</nav>
+    
+</div>
+</body>
+</html>
+

@@ -1,0 +1,329 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>算法笔记-递归 | ZZMIlkTEA&#39;s BLOG</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="baidu-site-verification" content="1ZsVVOmjoT" />
+    <meta name="description" content="引言话说对于解释递归，有一句有趣但又十分精准的话：  “要想理解递归，请先理解递归。”  我小学还经常听到个故事：  “从前有座山，山里有座庙，庙里有个小和尚。那个小和尚说：‘从前有座山，山里……’……”（原来我小时候就接触过递归了！）  没错，递归的本质就是套娃（笑 我们能看到一些递归缩写的命名：Linux(Linux is not UNIX), GNU(GNU’s not UNIX), PHP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法笔记-递归">
+<meta property="og:url" content="http://yoursite.com/2019/11/15/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E9%80%92%E5%BD%92-1/index.html">
+<meta property="og:site_name" content="ZZMIlkTEA&#39;s BLOG">
+<meta property="og:description" content="引言话说对于解释递归，有一句有趣但又十分精准的话：  “要想理解递归，请先理解递归。”  我小学还经常听到个故事：  “从前有座山，山里有座庙，庙里有个小和尚。那个小和尚说：‘从前有座山，山里……’……”（原来我小时候就接触过递归了！）  没错，递归的本质就是套娃（笑 我们能看到一些递归缩写的命名：Linux(Linux is not UNIX), GNU(GNU’s not UNIX), PHP">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://zzmilktea.codes/wp-content/uploads/2019/11/%E5%9B%BE%E7%89%871.png">
+<meta property="og:image" content="http://zzmilktea.codes/wp-content/uploads/2019/11/%E9%80%92%E5%BD%92%E8%BF%87%E7%A8%8B-1.png">
+<meta property="article:published_time" content="2019-11-15T14:38:04.000Z">
+<meta property="article:modified_time" content="2020-11-28T11:07:48.207Z">
+<meta property="article:author" content="ZZMilkTEA">
+<meta property="article:tag" content="算法">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://zzmilktea.codes/wp-content/uploads/2019/11/%E5%9B%BE%E7%89%871.png">
+    
+      <link rel="alternative" href="/atom.xml" title="ZZMIlkTEA&#39;s BLOG" type="application/atom+xml">
+    
+    
+      <link rel="icon" href="/css/favicon.ico">
+    
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<!-- Baidu Analytics -->
+<script type="text/javascript">
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?fe2c7555911b8560db5e56121c5d5960";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!-- End Baidu Analytics -->
+
+
+    <script src="//cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body>
+<div id="container"> 
+
+    
+    <div id="wrap">
+	   
+
+<header id="header" class="hdpage">
+    
+    <div id="header-outer" class="outer">
+        
+        <div id="header-inner" class="inner">
+          <nav id="main-nav">
+            <a id="main-nav-toggle" class="nav-icon"></a>
+            
+              <a class="main-nav-link" href="/">
+                  
+                  
+
+                
+                  Home
+                </a>
+            
+              <a class="main-nav-link" href="/API">
+                  
+                  
+
+                
+                  API
+                </a>
+            
+              <a class="main-nav-link" href="/tags">
+                  
+                  
+
+                
+                  Tags
+                </a>
+            
+              <a class="main-nav-link" href="/archives">
+                  
+                  
+
+                
+                  Archives
+                </a>
+            
+              <a class="main-nav-link" href="/about">
+                  
+                  
+
+                
+                  About
+                </a>
+            
+              <a class="main-nav-link" href="https://github.com/JSLite/JSLite" target="_blank" rel="noopener">
+                  
+                  
+
+                
+                  Github
+                </a>
+            
+          </nav>
+          <nav id="sub-nav">
+            
+              <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+            
+            <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+          </nav>
+          <div id="search-form-wrap">
+            <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+          </div>
+        </div>
+    </div>
+</header>
+		<div class="outer">
+		
+    <article id="post-算法笔记-递归-1" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="article-meta">
+        
+          <header class="article-header">
+            
+  
+    <a href="/2019/11/15/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E9%80%92%E5%BD%92-1/">
+      <h1 class="article-title" itemprop="name">
+        算法笔记-递归
+      </h1>
+    </a>
+  
+
+
+
+          </header>
+        
+
+        <!--<a href="/2019/11/15/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E9%80%92%E5%BD%92-1/" class="article-date">
+  <time datetime="2019-11-15T14:38:04.000Z" itemprop="datePublished">2019-11-15</time>
+</a>-->
+        <!--  -->
+      </div>
+      <div class="article-inner">
+            
+            
+              <!--<header class="article-header">
+                
+  
+    <a href="/2019/11/15/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E9%80%92%E5%BD%92-1/">
+      <h1 class="article-title" itemprop="name">
+        算法笔记-递归
+      </h1>
+    </a>
+  
+
+
+
+              </header>-->
+            
+            <div class="article-entry" itemprop="articleBody">
+              <div class="page-toc">
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#引言"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#定义"><span class="toc-number">2.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#在计算机科学中的递归"><span class="toc-number">3.</span> <span class="toc-text">在计算机科学中的递归</span></a></li></ol>
+              </div>
+              
+                <h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>话说对于解释递归，有一句有趣但又十分精准的话：</p>
+<blockquote>
+<p>“要想理解递归，请先理解递归。”</p>
+</blockquote>
+<p>我小学还经常听到个故事：</p>
+<blockquote>
+<p>“从前有座山，山里有座庙，庙里有个小和尚。那个小和尚说：‘从前有座山，山里……’……”（原来我小时候就接触过递归了！）</p>
+</blockquote>
+<p>没错，递归的本质就是套娃（笑 我们能看到一些递归缩写的命名：Linux(Linux is not UNIX), GNU(GNU’s not UNIX), PHP(PHP:Hypertext Preprocessor) 等等，它们就是自己解释自己。</p>
+<h1 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h1><p>转回正题，下面给出维基百科中关于递归的定义：</p>
+<blockquote>
+<p>“在数学和计算机科学中，递归指由一种（或多种）简单的基本情况定义的一类对象或方法，并规定其他所有情况都能被还原为其基本情况。”</p>
+</blockquote>
+<p>举个栗子，讲递归的话最爱拿的最典型的例子就是“斐波那契数列”了。 我们先看下斐波那契数列的定义：</p>
+<blockquote>
+<p>斐波那契数列由两个1开始，之后的斐波那契系数就是由之前的两数相加而得出。 用数学公式是</p>
+</blockquote>
+<p><img src="http://zzmilktea.codes/wp-content/uploads/2019/11/%E5%9B%BE%E7%89%871.png" alt="斐波那契数列公式"> 指的是这样一个数列：1、1、2、3、5、8、13、21、34……</p>
+<p>可以从公式看出，在公式的定义中也包含了自身。</p>
+<p>比如当 n = 2 的时候，F(2) = F(1) + F(0) = 1 + 1 = 2。n = 3 的时候 F(3) = F(2) + F(1) = F(1) + F(0) + F(1) = 1 + 1 + 1 = 3…… 所以我们讲斐波那切数列的定义是一个递归定义。 那么，没有n = 0和 n = 1的情况，它是不是也是递归定义呢？ 是的，他仍是一种递归定义，但是这样的话会遇到一种问题，那便是递归的过程永无终结，它会永无止境地调用下去。 所以递归在使用中一定要有终止条件，否则就会一直循环下去不会得到结果（在计算机中最终会使得栈溢出）。</p>
+<h1 id="在计算机科学中的递归"><a href="#在计算机科学中的递归" class="headerlink" title="在计算机科学中的递归"></a>在计算机科学中的递归</h1><p>在计算机科学中，直接或间接地调用自身的算法称为递归算法。 函数自身给出定义的函数称为递归函数。 使用递归函数所带来的好处便是代码的简洁，在部分算法中使用理解和编写都简单。但是有可能带来效率、性能、空间上的缺失。 在使用递归函数的时候，会经历下面的过程 <img src="http://zzmilktea.codes/wp-content/uploads/2019/11/%E9%80%92%E5%BD%92%E8%BF%87%E7%A8%8B-1.png" alt=""> 这个过程中，每次递推都会向系统的栈内存申请空间来存放新的局部变量（压栈），而之前的局部变量因为仍有可能要被使用而不会被销毁。于是就有可能造成栈内存空间不足而造成内存分配失败的情况（StackOverFlow 栈溢出，就是之前提到的）。于是在设计递归函数的时候要注意递归的深度，以防此情况。</p>
+
+              
+            </div>
+            <footer class="article-footer">
+              <a href="/2019/11/15/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E9%80%92%E5%BD%92-1/" class="article-date">
+  <time datetime="2019-11-15T14:38:04.000Z" itemprop="datePublished">2019-11-15</time>
+</a>
+              <a data-url="http://yoursite.com/2019/11/15/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E9%80%92%E5%BD%92-1/" data-id="cki1mdrzt006pvorh5k0wa7u3" class="article-share-link">Share</a>
+              
+              
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+
+            </footer>
+      </div>
+      
+        
+<nav id="article-nav">
+  
+    <a href="/2019/11/15/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E5%88%86%E6%B2%BB%E6%B3%95/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          算法笔记-分治法
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/11/15/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E9%80%92%E5%BD%92/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">算法笔记-递归</div>
+    </a>
+  
+</nav>
+
+      
+    </article>
+    <script type="text/javascript">
+      window.onscroll = function(){ 
+        $(function(){
+          var $toc = $('.page-toc'),
+              $article = $('.article-entry')
+              toc_top = $toc.offset().top
+              tocsub_width = $toc.children().width()
+              article_height = $article.children().height()
+              scroll_top = document.body.scrollTop
+              screen_h = $(window).height()
+              footer_top = $('.article-footer').offset().top - $(window).height()
+              if(toc_top&&scroll_top&&scroll_top>toc_top&&scroll_top<footer_top){
+                $toc.children().css({
+                  "position": "fixed",
+                  "height": (screen_h -20)+'px',
+                  "overflow": "auto"
+                })
+                $article.css('margin-right',tocsub_width+'px')
+              }else{
+                $toc.children().css({
+                  "position": "relative",
+                  "height":'inherit',
+                  "overflow": "auto"
+                })
+                $article.css('margin-right',0+'px')
+              }
+        })
+      } 
+    </script>
+
+
+
+
+
+
+
+
+		</div>
+		
+
+<footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+        <div class="left">
+            &copy; 2020 ZZMilkTEA<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and Theme by <a href="https://github.com/jaywcjlove/hexoThemeKacper" target="_blank" rel="noopener">hexoThemeKacper </a>
+        </div>
+        <div class="right">
+            
+        </div>
+    </div>
+  </div>
+</footer>
+<script src="//cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script>
+
+
+<script type="text/javascript">
+$(function(){
+  var $img = $('.article-entry img'),
+      $link = $img.css({
+        "display":"inline-block"
+      }).parent()
+
+  if($link.parent().is("a")){
+      $img.each(function(idx,item) {
+      $(this).parent().attr('href',$(this).parent().parent().attr('href'))
+    })
+  }
+})
+</script>
+
+
+
+<script src="/js/script.js"></script>
+
+
+  	</div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/API" class="mobile-nav-link">API</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+    <a href="https://github.com/JSLite/JSLite" target="_blank" rel="noopener" class="mobile-nav-link">Github</a>
+  
+</nav>
+    
+</div>
+</body>
+</html>
+

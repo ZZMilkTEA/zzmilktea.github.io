@@ -1,0 +1,306 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>面试完的一些思考 | ZZMIlkTEA&#39;s BLOG</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="baidu-site-verification" content="1ZsVVOmjoT" />
+    <meta name="description" content="大厂真的很注重底层啊。 一面的面试官最后在反问环节有句话给我印象十分深刻：我们不是单纯的堆业务，我们主要是要能够在这些业务中找到一些共性的东西，要从底层把他们抽象出来。是的，我以前也十分注重抽象的重要性，但是只是类似于代码块、组件之类的抽象与复用，而不是在我们工作中所遇到的方方面面的东西。 在二面的反问环节，我问了面试官为什么会问底层的东西比较多，是不是内部有造轮子的需求？面试官说不是的，我们实际">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面试完的一些思考">
+<meta property="og:url" content="http://yoursite.com/2020/08/28/%E9%9D%A2%E8%AF%95%E5%AE%8C%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/index.html">
+<meta property="og:site_name" content="ZZMIlkTEA&#39;s BLOG">
+<meta property="og:description" content="大厂真的很注重底层啊。 一面的面试官最后在反问环节有句话给我印象十分深刻：我们不是单纯的堆业务，我们主要是要能够在这些业务中找到一些共性的东西，要从底层把他们抽象出来。是的，我以前也十分注重抽象的重要性，但是只是类似于代码块、组件之类的抽象与复用，而不是在我们工作中所遇到的方方面面的东西。 在二面的反问环节，我问了面试官为什么会问底层的东西比较多，是不是内部有造轮子的需求？面试官说不是的，我们实际">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-08-28T10:01:59.000Z">
+<meta property="article:modified_time" content="2020-11-28T11:07:48.411Z">
+<meta property="article:author" content="ZZMilkTEA">
+<meta property="article:tag" content="文章">
+<meta name="twitter:card" content="summary">
+    
+      <link rel="alternative" href="/atom.xml" title="ZZMIlkTEA&#39;s BLOG" type="application/atom+xml">
+    
+    
+      <link rel="icon" href="/css/favicon.ico">
+    
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<!-- Baidu Analytics -->
+<script type="text/javascript">
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?fe2c7555911b8560db5e56121c5d5960";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!-- End Baidu Analytics -->
+
+
+    <script src="//cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body>
+<div id="container"> 
+
+    
+    <div id="wrap">
+	   
+
+<header id="header" class="hdpage">
+    
+    <div id="header-outer" class="outer">
+        
+        <div id="header-inner" class="inner">
+          <nav id="main-nav">
+            <a id="main-nav-toggle" class="nav-icon"></a>
+            
+              <a class="main-nav-link" href="/">
+                  
+                  
+
+                
+                  Home
+                </a>
+            
+              <a class="main-nav-link" href="/API">
+                  
+                  
+
+                
+                  API
+                </a>
+            
+              <a class="main-nav-link" href="/tags">
+                  
+                  
+
+                
+                  Tags
+                </a>
+            
+              <a class="main-nav-link" href="/archives">
+                  
+                  
+
+                
+                  Archives
+                </a>
+            
+              <a class="main-nav-link" href="/about">
+                  
+                  
+
+                
+                  About
+                </a>
+            
+              <a class="main-nav-link" href="https://github.com/JSLite/JSLite" target="_blank" rel="noopener">
+                  
+                  
+
+                
+                  Github
+                </a>
+            
+          </nav>
+          <nav id="sub-nav">
+            
+              <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+            
+            <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+          </nav>
+          <div id="search-form-wrap">
+            <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+          </div>
+        </div>
+    </div>
+</header>
+		<div class="outer">
+		
+    <article id="post-面试完的一些思考" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="article-meta">
+        
+          <header class="article-header">
+            
+  
+    <a href="/2020/08/28/%E9%9D%A2%E8%AF%95%E5%AE%8C%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">
+      <h1 class="article-title" itemprop="name">
+        面试完的一些思考
+      </h1>
+    </a>
+  
+
+
+
+          </header>
+        
+
+        <!--<a href="/2020/08/28/%E9%9D%A2%E8%AF%95%E5%AE%8C%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/" class="article-date">
+  <time datetime="2020-08-28T10:01:59.000Z" itemprop="datePublished">2020-08-28</time>
+</a>-->
+        <!--  -->
+      </div>
+      <div class="article-inner">
+            
+            
+              <!--<header class="article-header">
+                
+  
+    <a href="/2020/08/28/%E9%9D%A2%E8%AF%95%E5%AE%8C%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">
+      <h1 class="article-title" itemprop="name">
+        面试完的一些思考
+      </h1>
+    </a>
+  
+
+
+
+              </header>-->
+            
+            <div class="article-entry" itemprop="articleBody">
+              <div class="page-toc">
+                
+              </div>
+              
+                <p>大厂真的很注重底层啊。 一面的面试官最后在反问环节有句话给我印象十分深刻：我们不是单纯的堆业务，我们主要是要能够在这些业务中找到一些共性的东西，要从底层把他们抽象出来。是的，我以前也十分注重抽象的重要性，但是只是类似于代码块、组件之类的抽象与复用，而不是在我们工作中所遇到的方方面面的东西。 在二面的反问环节，我问了面试官为什么会问底层的东西比较多，是不是内部有造轮子的需求？面试官说不是的，我们实际上也不是为了造轮子，也不一定要你真的自己去实现底层的逻辑，问底层只是了解一下你对于使用的东西是否有真正透彻的理解，是否有一个知其然也知其所以然的能力。 反思了下自己，过去的项目中确实存在着堆业务的情况，也没有真正地去了解、手操一下底层的东西。想想也确实，那些高级抽象过的框架们也确实需要对底层有足够深入的了解才能开发出来，如果想提高需要多看看框架的源码。不过自己为了一些做事的效率，没必要去碰到的知识和问题就先不忙研究，先解决好眼前必要的事情。也具体看吧，主要还是因为要迫切解决的问题也是如山高。 接到面试通知后的这个星期里，恶补理论知识，但还是缺了不少。同时由于理论知识缺的太多，忘记了自己去手写实践里面的内容，导致没巩固好，有些问题应该是看过的。感觉最近要继续实践软工中的“迭代式开发”来进行“迭代式学习”，不要惧怕未知，同时反复学习曾经学过的东西，总会有新收获。 另外也回去翻看了下过去写的项目，修了几个小bug。现在看看过去项目中的东西，又觉得辣眼睛了（记得当时挺膨胀的hhhhhh），代码风格、提交规范、分支使用、CSS&amp;JS&amp;框架的使用啥的。这就是成长吧hhhh没想到看快4个月前写的东西就觉得辣眼睛了，成长得算快吗_(:з」∠)_ 总之，我觉得我定下来前端这个方向了。虽然学校教得不多，也从4个月前才开始真正接触大前端的一角。在毕业后的这两个月里，一开始也迷茫自己所学的太少，到底能不能干前端。从8月初主要负责项目的前端部分后，发现自己的前端能力有比较明显的提升（虽然还不够！）。还是干前端开心好玩啊！！我不想再做后端了嘤嘤嘤。</p>
+
+              
+            </div>
+            <footer class="article-footer">
+              <a href="/2020/08/28/%E9%9D%A2%E8%AF%95%E5%AE%8C%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/" class="article-date">
+  <time datetime="2020-08-28T10:01:59.000Z" itemprop="datePublished">2020-08-28</time>
+</a>
+              <a data-url="http://yoursite.com/2020/08/28/%E9%9D%A2%E8%AF%95%E5%AE%8C%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/" data-id="cki1mds0j007qvorh2jv5d143" class="article-share-link">Share</a>
+              
+              
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%96%87%E7%AB%A0/" rel="tag">文章</a></li></ul>
+
+            </footer>
+      </div>
+      
+        
+<nav id="article-nav">
+  
+    <a href="/2020/09/08/%E4%BB%8E-javascript-%E8%B0%88%E8%B0%88-%E5%87%BD%E6%95%B0%E4%B8%BA%E4%B8%80%E7%AD%89%E5%85%AC%E6%B0%91/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          从 JavaScript 谈谈 函数为“一等公民”
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/08/28/%E5%AD%97%E8%8A%82-1%E3%80%812%E9%9D%A2-%E5%8D%B0%E8%B1%A1%E6%B7%B1%E5%88%BB%E7%9A%84%E7%9F%A5%E8%AF%86%E7%82%B9%E8%AE%B0%E5%BD%95/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">字节 1、2面 印象深刻的知识点记录</div>
+    </a>
+  
+</nav>
+
+      
+    </article>
+    <script type="text/javascript">
+      window.onscroll = function(){ 
+        $(function(){
+          var $toc = $('.page-toc'),
+              $article = $('.article-entry')
+              toc_top = $toc.offset().top
+              tocsub_width = $toc.children().width()
+              article_height = $article.children().height()
+              scroll_top = document.body.scrollTop
+              screen_h = $(window).height()
+              footer_top = $('.article-footer').offset().top - $(window).height()
+              if(toc_top&&scroll_top&&scroll_top>toc_top&&scroll_top<footer_top){
+                $toc.children().css({
+                  "position": "fixed",
+                  "height": (screen_h -20)+'px',
+                  "overflow": "auto"
+                })
+                $article.css('margin-right',tocsub_width+'px')
+              }else{
+                $toc.children().css({
+                  "position": "relative",
+                  "height":'inherit',
+                  "overflow": "auto"
+                })
+                $article.css('margin-right',0+'px')
+              }
+        })
+      } 
+    </script>
+
+
+
+
+
+
+
+
+		</div>
+		
+
+<footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+        <div class="left">
+            &copy; 2020 ZZMilkTEA<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and Theme by <a href="https://github.com/jaywcjlove/hexoThemeKacper" target="_blank" rel="noopener">hexoThemeKacper </a>
+        </div>
+        <div class="right">
+            
+        </div>
+    </div>
+  </div>
+</footer>
+<script src="//cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script>
+
+
+<script type="text/javascript">
+$(function(){
+  var $img = $('.article-entry img'),
+      $link = $img.css({
+        "display":"inline-block"
+      }).parent()
+
+  if($link.parent().is("a")){
+      $img.each(function(idx,item) {
+      $(this).parent().attr('href',$(this).parent().parent().attr('href'))
+    })
+  }
+})
+</script>
+
+
+
+<script src="/js/script.js"></script>
+
+
+  	</div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/API" class="mobile-nav-link">API</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+    <a href="https://github.com/JSLite/JSLite" target="_blank" rel="noopener" class="mobile-nav-link">Github</a>
+  
+</nav>
+    
+</div>
+</body>
+</html>
+
