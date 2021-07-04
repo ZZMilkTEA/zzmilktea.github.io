@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gift box</title>
+    <style>
+        #giftBox{
+            position: absolute;
+            margin: 160px 0 0 -20px;
+            max-height: 30%;
+            max-width: 30%;
+            animation:shake 1s infinite;
+            -moz-animation:shake 1s infinite; /* Firefox */
+            -webkit-animation:shake 1s infinite; /* Safari and Chrome */
+            -o-animation:shake 1s infinite; /* Opera */
+        }
+
+        @keyframes shake
+        {
+            0%   {}
+            25%  {transform: rotate(0deg);
+                -ms-transform: rotate(0deg); /* IE 9 */
+                -webkit-transform: rotate(0deg);}
+            40%  {transform: rotate(20deg);
+                -ms-transform: rotate(20deg); /* IE 9 */
+                -webkit-transform: rotate(20deg); /* Safari and Chrome */}
+            50% {transform: rotate(-30deg);
+                -ms-transform: rotate(-30deg); /* IE 9 */
+                -webkit-transform: rotate(-30deg); /* Safari and Chrome */}
+            60%   {transform: rotate(30deg);
+                -ms-transform: rotate(30deg); /* IE 9 */
+                -webkit-transform: rotate(30deg); /* Safari and Chrome */)}
+            70%  {transform: rotate(-20deg);
+                -ms-transform: rotate(-20deg); /* IE 9 */
+                -webkit-transform: rotate(-20deg); /* Safari and Chrome */}
+            75%  {transform: rotate(0deg);
+                -ms-transform: rotate(0deg); /* IE 9 */
+                -webkit-transform: rotate(0deg);}
+            100% {}
+        }
+
+        #explain {
+            margin-right: 3px;
+        }
+    </style>
+</head>
+<body>
+<img src="explain.png" alt="说明" id="explain">
+<a href="a_birthday_present_for_Zye_;).html">
+    <img src="giftBox.png" alt="礼盒" id="giftBox">
+</a>
+</body>
+</html>

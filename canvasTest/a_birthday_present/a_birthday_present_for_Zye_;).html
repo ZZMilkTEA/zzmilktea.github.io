@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        html,
+         body {
+             margin: 0;
+             padding: 0;
+         }
+        canvas {
+            display: block;
+            cursor: none;
+            left:0;right:0;
+            top:0;bottom:0;
+        }
+        #explain{
+            color: rgb(0,150,255);
+            opacity: 0;
+            position: absolute;
+            margin: 10px 5%;
+            text-align: center;
+            font-size: 2em;
+            cursor: none!important;
+            -webkit-font-smoothing : none;
+            animation:shining 2s 4;
+            -moz-animation:shining 2s 4; /* Firefox */
+            -webkit-animation:shining 2s 4; /* Safari and Chrome */
+            -o-animation:shining 2s 4; /* Opera */
+            animation-fill-mode:forwards;
+        }
+        @keyframes shining
+        {
+            0%   {opacity: 0;visibility: visible}
+
+            50% {opacity: 1;}
+
+            100% {opacity: 0;visibility: hidden}
+        }
+
+        #musicPlay{
+            background-color: rgb(255,120,177);
+            border: none;
+            color: white;
+            padding: 0.6em 1.3em;
+            text-align: center;
+            text-decoration: none;
+            font-size: 3em;
+            cursor: pointer;
+            transform: initial;
+            border-radius:0.3em;
+            justify-content:center;
+        }
+        #buttonCtx{
+            text-align: center;
+            position: fixed;
+            left: 0;right: 0;
+            bottom: 0;
+            visibility: hidden;
+        }
+        #buttonCtx.show {
+              visibility: visible;
+              -webkit-animation: fadein 1s;
+              animation: fadein 1s;
+            animation-fill-mode:forwards;
+          }
+        #buttonCtx.out {
+            visibility: visible;
+            -webkit-animation: fadeout 1s;
+            animation: fadeout 1s;
+            animation-fill-mode:forwards;
+        }
+        @-webkit-keyframes fadein {
+            from {bottom: 0; opacity: 0;}
+            to {bottom: 20%; opacity: 1;}
+        }
+        @keyframes fadein {
+            from {bottom: 0; opacity: 0;}
+            to {bottom: 20%; opacity: 1;}
+        }
+        @-webkit-keyframes fadeout {
+            from {bottom: 20%; opacity: 1;}
+            to {bottom: 20%; opacity: 0;visibility: hidden;}
+        }
+        @keyframes fadeout {
+            from {bottom: 20%; opacity: 1;}
+            to {bottom: 0; opacity: 0;visibility: hidden;}
+        }
+
+    </style>
+    <script type="text/javascript" src="https://wow.techbrood.com/libs/jquery/jquery-2.1.1.min.js"></script>
+    <title>A birthday present for Zye ;)</title>
+</head>
+
+
+<body bgcolor="#000000">
+    <div id="explain"><p>试着随便在屏幕中划划，看看会发生什么？鼠标滚轮可以调整自己的圈圈大小Ü</p></div>
+    <div id="buttonCtx"><button type="button" id="musicPlay">MUSIC!!!</button></div>
+    <audio src="HappyBirthday.mp3" id="music" volume="0.0" loop></audio>
+    <canvas></canvas>
+    <!-- Use your scrollWheel to increase the range -->
+    <script src="canvas.js"></script>
+</body>
+</html>
