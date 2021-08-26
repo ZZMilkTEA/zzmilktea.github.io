@@ -31,7 +31,7 @@ function Shape(x ,y) {
     this.x = x;
     this.y = y;
     this.size = 100;
-    this.text = ["祝小寿星叶梓21周岁生日快乐!","Happy Birthday!","Alles gute zum geburtstag!"];
+    this.text = ["Hello,world!", "你好，世界！"];
     this.position = [];
     this.accuracy = 7;
 }
